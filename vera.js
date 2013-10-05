@@ -23,6 +23,15 @@ exports.action = function(data, callback, config){
     console.log(body);
     
     // Callback with TTS
-    callback({'tts': "Je m'en occupe !"});
+    var phrase_success = new Array();
+	phrase_success[1] = 'C\'est fait !';
+	phrase_success[2] = 'Je m\'en occupe !';
+	phrase_success[3] = 'Ok';
+	phrase_success[4] = 'Voilà qui est fait !';
+	phrase_success[5] = 'Tout de suite !';
+
+  random = Math.floor((Math.random()*(phrase_success.length-1))+1);
+			phrase_select = phrase_success[random];
+			callback({'tts': phrase_select});
   });
 }
